@@ -2,6 +2,7 @@
 #include "micro-ecc/uECC.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 
 char version[]="1.0";
 
@@ -29,6 +30,8 @@ class Cle
 		uint8_t b = castStringToUint8(publickey);
 		//uECC_Curve curve_256k1 = uECC_secp256k1();
 		//uECC_make_key(&a,&b,curve_256k1);
+
+        std::cout << a << std::endl;
 	}
         const std::string &getPrivateKey() const {
 	       return privatekey;
