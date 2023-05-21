@@ -2,6 +2,7 @@
 #include "micro-ecc/uECC.h"
 #include <string>
 #include <sstream>
+#include <iostream>
 
 char version[]="1.0";
 
