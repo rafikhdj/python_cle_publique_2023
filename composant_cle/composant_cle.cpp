@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "micro-ecc/uECC.h"
+#include "uECC.h"
 #include <string>
 #include <sstream>
 
@@ -45,7 +45,7 @@ class Cle
 namespace py = pybind11;
 
 
-PYBIND11_MODULE(composant_cle,greetings)
+PYBIND11_MODULE(cle_component,greetings)
 {
   greetings.doc() = "greeting_object 1.0";
   greetings.def("getVersion", &getVersion, "a function returning the version");
