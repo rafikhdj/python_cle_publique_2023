@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include <composant_cle/micro-ecc>
+#include "micro-ecc/uECC.h"
 #include <string>
 #include <sstream>
 
@@ -51,7 +51,7 @@ PYBIND11_MODULE(cle_component,greetings)
   greetings.def("getVersion", &getVersion, "a function returning the version");
   
    // bindings to Cle class
-    py::class_<Cle>(greetings, "Cle", py::dynamic_attr())
+    py::class_<Cle>(greetings, "Cle")
         .def(py::init<>())
 	.def("initialize", &Cle::initialize)
         .def("getPrivateKey", &Cle::getPrivateKey)
