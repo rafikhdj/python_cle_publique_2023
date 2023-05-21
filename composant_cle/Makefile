@@ -1,7 +1,7 @@
 CPPFLAGS += `python3-config --includes`
 LIBS=`python3-config --ldflags`
 
-COMPOSANT = composant_cle_component
+COMPOSANT = composant_cle
 
 LIBSO = ${COMPOSANT}.so
 LIBSO_OBJS = ${COMPOSANT}.o
