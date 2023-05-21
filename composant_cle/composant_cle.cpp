@@ -5,20 +5,47 @@
 #include <sstream>
 #include <vector>
 
-std::vector<uint8_t> hexToUint8(const std::string& hexString) {
-    std::vector<uint8_t> result;
+#include <stddef.h>
 
-    // Iterate over the input string, two characters at a time
-    for (size_t i = 0; i < hexString.length(); i += 2) {
-        std::string byteString = hexString.substr(i, 2);
-        uint8_t byteValue;
-        std::stringstream ss;
-        ss << std::hex << byteString;
-        ss >> byteValue;
-        result.push_back(byteValue);
+unsigned char hexchr2bin(const char hex)
+{
+	unsigned char result;
+
+	if (hex >= '0' && hex <= '9') {
+		result = hex - '0';
+	} else if (hex >= 'A' && hex <= 'F') {
+		result = hex - 'A' + 10;
+	} else if (hex >= 'a' && hex <= 'f') {
+		result = hex - 'a' + 10;
+	} else {
+		return 0;
+	}
+	return result;
+}
+
+
+
+void hexStringToBin(unsigned char *out,const char * hexPrivate) {
+    for (int i=0; i<32; i++){
+	out[i] = hexchr2bin(hexPrivate[2*i])<<4 | hexchr2bin(hexPrivate[2*i+1]);
     }
+}
 
-    return result;
+
+char *binToHexString(char *out,const unsigned char *bin, size_t len)
+{
+    size_t  i;
+
+    if (bin == NULL || len == 0)
+	return NULL;
+
+    for (i=0; i<len; i++) {
+	out[i*2]   = "0123456789abcdef"[bin[i] >> 4];
+	out[i*2+1] = "0123456789abcdef"[bin[i] & 0x0F];
+    }
+    out[len*2] = '\0';
+
+    return out;
 }
 
 char version[]="1.0";
@@ -35,7 +62,7 @@ class Cle
 
         void initialize(std::string number){
             
-            privatekey = hexToUint8(number);
+            privatekey = hexStringToBin(number);
             publickey = uECC_compute_public_key(privatekey, publickey, uECC_secp256k1());
         }
         const std::string &getPrivateKey() const {
