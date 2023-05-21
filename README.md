@@ -40,3 +40,7 @@ macle.getPublicKey() -> retourne “f2ce1e40befbebaf4045f1a6d126b7b949e7d5adea33
 
 ![Capture d’écran 2023-05-21 à 23 59 25](https://github.com/rafikhdj/python_cle_publique_2023/assets/26821093/33689439-a148-48fb-90ab-6f71a958b46f)
 
+```
+
+
+![Capture d’écran 2023-05-21 à 23 59 25](https://github.com/rafikhdj/python_cle_publique_2023/assets/26821093/0fcf2e90-7b6b-4bcf-a135-16725e8bd9e8)
