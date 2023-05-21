@@ -25,8 +25,8 @@ class Cle
            return publickey;
            }
     private:
-        std::string privatekey;
-        std::string publickey;
+        uint8_t privatekey;
+        uint8_t publickey;
         
 };
  
@@ -42,5 +42,5 @@ PYBIND11_MODULE(cle_component,greetings)
     py::class_<Cle>(greetings, "Cle")
         .def("initialize", &Cle::initialize)
         .def("getPrivateKey", &Cle::getPrivateKey)
-        .def("getPublicKey", &Cle::getPublicKey)
+        .def("getPublicKey", &Cle::getPublicKey);
 }
