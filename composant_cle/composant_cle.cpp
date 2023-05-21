@@ -31,7 +31,7 @@ class Cle
 		//uECC_Curve curve_256k1 = uECC_secp256k1();
 		//uECC_make_key(&a,&b,curve_256k1);
 
-        std::cout << a << std::endl;
+        
 	}
         const std::string &getPrivateKey() const {
 	       return privatekey;
