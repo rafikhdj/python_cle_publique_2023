@@ -1,17 +1,19 @@
 CPPFLAGS += `python3-config --includes`
 LIBS=`python3-config --ldflags`
 
-LDFLAGS := -L /micro-ecc 
+
 
 COMPOSANT = composant_cle
 
 LIBSO = ${COMPOSANT}.so
 LIBSO_OBJS = ${COMPOSANT}.o
 
+
 all: test $(LIBSO)
 
 include ../gcc.mk
 include ../pybind11.mk
+include ../micro-ecc.mk
 
 
 test: $(LIBSO)
