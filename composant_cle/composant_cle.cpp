@@ -1,5 +1,5 @@
 #include <pybind11/pybind11.h>
-#include "uECC.h"
+#include <micro-ecc>
 #include <string>
 #include <sstream>
 
