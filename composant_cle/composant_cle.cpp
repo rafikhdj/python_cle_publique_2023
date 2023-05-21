@@ -13,7 +13,7 @@ class Cle
         Cle() {}
         ~Cle() {}
 
-        void initialize(std::string number){
+        void initialize(uint8_t number){
             
             privatekey = number;
             publickey = uECC_compute_public_key(privatekey, publickey, uECC_secp256k1());
