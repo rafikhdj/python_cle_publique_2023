@@ -1,6 +1,26 @@
 #include <pybind11/pybind11.h>
 #include "micro-ecc/uECC.h"
 
+#include <string>
+#include <sstream>
+#include <vector>
+
+std::vector<uint8_t> hexToUint8(const std::string& hexString) {
+    std::vector<uint8_t> result;
+
+    // Iterate over the input string, two characters at a time
+    for (size_t i = 0; i < hexString.length(); i += 2) {
+        std::string byteString = hexString.substr(i, 2);
+        uint8_t byteValue;
+        std::stringstream ss;
+        ss << std::hex << byteString;
+        ss >> byteValue;
+        result.push_back(byteValue);
+    }
+
+    return result;
+}
+
 char version[]="1.0";
 
 char const* getVersion() {
@@ -15,7 +35,7 @@ class Cle
 
         void initialize(std::string number){
             
-            privatekey = static_cast<uint8_t>(number);
+            privatekey = hexToUint8(number);
             publickey = uECC_compute_public_key(privatekey, publickey, uECC_secp256k1());
         }
         const std::string &getPrivateKey() const {
