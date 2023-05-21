@@ -2,7 +2,7 @@
 #include "micro-ecc/uECC.h"
 #include <string>
 #include <sstream>
-#include <iostream>
+
 
 char version[]="1.0";
 
@@ -25,9 +25,7 @@ class Cle
     		return static_cast<uint8_t>(intValue);
 	}
 	void initialize(std::string &pk){
-		privatekey = castStringToUint8(pk);
-
-		uECC_compute_public_key(&privatekey, &publickey, uECC_secp256r1());
+		privatekey = 10;
 
         
 	}
