@@ -16,7 +16,7 @@ class Cle
         void initialize(std::string number){
             
             privatekey = number;
-            publickey = uECC_compute_public_key(privateKey, publicKey, uECC_secp256k1());
+            publickey = uECC_compute_public_key(privatekey, publickey, uECC_secp256k1());
         }
         const std::string &getPrivateKey() const {
 	       return privatekey;
