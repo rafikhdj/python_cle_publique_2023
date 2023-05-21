@@ -2,7 +2,6 @@
 #include "micro-ecc/uECC.h"
 #include <string>
 #include <sstream>
-#include <iostream>
 
 char version[]="1.0";
 
@@ -28,8 +27,8 @@ class Cle
 		privatekey = pk;
 		uint8_t a = castStringToUint8(privatekey);
 		uint8_t b = castStringToUint8(publickey);
-        std::cout << a;
-
+		uECC_Curve curve_256k1 = uECC_secp256k1();
+		uECC_make_key(&a,&b,curve_256k1);
 	}
         const std::string &getPrivateKey() const {
 	       return privatekey;
@@ -52,7 +51,8 @@ PYBIND11_MODULE(cle_component,greetings)
   greetings.def("getVersion", &getVersion, "a function returning the version");
   
    // bindings to Cle class
-    py::class_<Cle>(greetings, "Cle")
+    py::class_<Cle>(greetings, "Cle", py::dynamic_attr())
+        .def(py::init<>())
 	.def("initialize", &Cle::initialize)
         .def("getPrivateKey", &Cle::getPrivateKey)
         .def("getPublicKey", &Cle::getPublicKey);
