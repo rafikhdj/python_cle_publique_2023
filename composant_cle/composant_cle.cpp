@@ -38,8 +38,8 @@ class Cle
            return publickey;
            }
     private:
-        std::string privatekey = "Heelo";
-        std::string publickey= "test";
+        std::string privatekey;
+        std::string publickey;
         
 };
  
