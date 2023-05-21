@@ -27,7 +27,7 @@ class Cle
 	void initialize(std::string &pk){
 		privatekey = castStringToUint8(pk);
 
-		uECC_compute_public_key(privateKey, publicKey, uECC_secp256r1());
+		uECC_compute_public_key(privatekey, publickey, uECC_secp256r1());
 
         
 	}
