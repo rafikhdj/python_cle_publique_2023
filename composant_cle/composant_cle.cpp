@@ -29,7 +29,7 @@ class Cle
 		uint8_t b = castStringToUint8(publickey);
         const struct uECC_Curve_t * curve = uECC_secp256k1();
 		uECC_Curve curve_256k1 = uECC_secp256k1();
-		
+		uECC_make_key(&a,&b,curve_256k1);
 	}
         const std::string &getPrivateKey() const {
 	       return privatekey;

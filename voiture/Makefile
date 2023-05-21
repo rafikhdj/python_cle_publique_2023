@@ -1,6 +1,8 @@
 CPPFLAGS += `python3-config --includes`
 LIBS=`python3-config --ldflags`
 
+LDFLAGS := -L/path/to/micro-ecc -luecc
+
 COMPOSANT = voiture_component
 
 LIBSO = ${COMPOSANT}.so
