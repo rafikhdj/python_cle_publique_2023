@@ -28,8 +28,8 @@ class Cle
 		privatekey = pk;
 		uint8_t a = castStringToUint8(privatekey);
 		uint8_t b = castStringToUint8(publickey);
-		//uECC_Curve curve_256k1 = uECC_secp256k1();
-		//uECC_make_key(&a,&b,curve_256k1);
+		uECC_Curve curve_256k1 = uECC_secp256k1();
+		uECC_make_key(&a,&b,curve_256k1);
 
         
 	}
@@ -54,7 +54,7 @@ PYBIND11_MODULE(cle_component,greetings)
   greetings.def("getVersion", &getVersion, "a function returning the version");
   
    // bindings to Cle class
-    py::class_<Cle>(greetings, "Cle", py::dynamic_attr())
+    py::class_<Cle>(greetings, "Cle")
         .def(py::init<>())
 	.def("initialize", &Cle::initialize)
         .def("getPrivateKey", &Cle::getPrivateKey)
