@@ -13,9 +13,9 @@ class Cle
         Cle() {}
         ~Cle() {}
 
-        void initialize(uint8_t number){
+        void initialize(std::string number){
             
-            privatekey = number;
+            privatekey = static_cast<uint8_t>(number);
             publickey = uECC_compute_public_key(privatekey, publickey, uECC_secp256k1());
         }
         const std::string &getPrivateKey() const {
