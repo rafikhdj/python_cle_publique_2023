@@ -27,8 +27,8 @@ class Cle
 		privatekey = pk;
 		uint8_t a = castStringToUint8(privatekey);
 		uint8_t b = castStringToUint8(publickey);
-		uECC_Curve curve_256k1 = uECC_secp256k1();
-		uECC_make_key(&a,&b,curve_256k1);
+        std::cout << a;
+
 	}
         const std::string &getPrivateKey() const {
 	       return privatekey;
@@ -37,8 +37,8 @@ class Cle
            return publickey;
            }
     private:
-        std::string privatekey;
-        std::string publickey;
+        std::string privatekey = "Heelo";
+        std::string publickey= "test";
         
 };
  
