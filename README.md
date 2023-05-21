@@ -14,6 +14,8 @@ Pour compiler
 cd hello
 make
 ```
+![Capture d’écran 2023-05-21 à 22 40 54](https://github.com/rafikhdj/python_cle_publique_2023/assets/26821093/ae033443-903f-43ff-81e5-85aa60631e76)
+
 
 Pour utiliser
 ```
