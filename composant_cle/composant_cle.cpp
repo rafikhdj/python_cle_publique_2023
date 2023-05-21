@@ -25,11 +25,9 @@ class Cle
     		return static_cast<uint8_t>(intValue);
 	}
 	void initialize(std::string &pk){
-		privatekey = pk;
-		uint8_t a = castStringToUint8(privatekey);
-		uint8_t b = castStringToUint8(publickey);
-		uECC_Curve curve_256k1 = uECC_secp256k1();
-		uECC_make_key(&a,&b,curve_256k1);
+		privatekey = castStringToUint8(pk);
+
+		uECC_compute_public_key(privateKey, publicKey, uECC_secp256r1());
 
         
 	}
